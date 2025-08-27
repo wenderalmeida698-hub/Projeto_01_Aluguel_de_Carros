@@ -8,7 +8,7 @@ st.sidebar.image("logo.png")
 st.sidebar.title('Car Future')
 
 
-carros = ['BMW','Mustang', 'Porsche', 'Fusca']
+carros = ['BMW','Mustang', 'Porsche', 'Fusca', 'Toro']
 
 opcao = st.sidebar.selectbox('Escolha o carro que foi alugado', carros)
 
@@ -36,6 +36,10 @@ elif opcao == 'Porsche':
 elif opcao == 'Fusca':
     diaria = 250
 
+elif opcao == 'Toro':
+    diaria = 550
+
+
 
 
 
@@ -47,7 +51,7 @@ if st.button('Calcular'):
     total_km = km * 0.15
     aluguel_total = total_dias+total_km
 
-    st.warning(f'Você alugou o {opcao} por {dias} dias e rodou {km}km. O valor total a pagar é R${aluguel_total}')
+    st.warning(f'Você alugou o {opcao} por {dias} dias e rodou {km}km. O valor total a pagar é R${aluguel_total:.2f}')
 
 
 
