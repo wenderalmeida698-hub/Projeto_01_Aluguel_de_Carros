@@ -5,7 +5,7 @@ import streamlit as st
 # ------------------------------------------------- Sidebar
 
 st.sidebar.image("logo.png")
-st.sidebar.title('Car Future')
+st.sidebar.title('Mmotors')
 
 
 carros = ['BMW','Mustang', 'Porsche', 'Fusca', 'Toro']
@@ -15,7 +15,7 @@ opcao = st.sidebar.selectbox('Escolha o carro que foi alugado', carros)
 
 
 # ----------------------------------------------- Principal 
-st.title('Car Future - Aluguel de Carros')
+st.title('Mmotors - Aluguel de Carros')
 
 st.image(f'{opcao}.png')
 st.markdown(f'## Você alugou o modelo: {opcao}')
@@ -52,6 +52,7 @@ if st.button('Calcular'):
     aluguel_total = total_dias+total_km
 
     st.warning(f'Você alugou o {opcao} por {dias} dias e rodou {km}km. O valor total a pagar é R${aluguel_total:.2f}')
+
 
 
 
