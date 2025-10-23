@@ -1,60 +1,26 @@
 import streamlit as st
-
-# python -m streamlit run app.py
-
-# ------------------------------------------------- Sidebar
-
-st.sidebar.image("logo.png")
-st.sidebar.title('Mateus Motors')
-
-
-carros = ['BMW','Mustang', 'Porsche', 'Fusca', 'Toro']
-
-opcao = st.sidebar.selectbox('Escolha o carro que foi alugado', carros)
-
-
-
-# ----------------------------------------------- Principal 
-st.title('Mateus motors - Aluguel de Carros')
-
-st.image(f'{opcao}.png')
-st.markdown(f'## Você alugou o modelo: {opcao}')
-st.markdown('---')
-
-dias = st.text_input(f'Por quantos dias o {opcao} foi alugado?')
-km = st.text_input(f'Quantos km você rodou com o {opcao}?')
-
-if opcao == 'BMW':
-    diaria = 450
-
-elif opcao == 'Mustang':
-    diaria = 500
-
-elif opcao == 'Porsche':
-    diaria = 300
-
-elif opcao == 'Fusca':
-    diaria = 250
-
-elif opcao == 'Toro':
-    diaria = 550
-
-
-
-
-
-if st.button('Calcular'):
+st.title("aluga rapido")
+st.write("selecione o modelo que mais corresponde a sua expectativa para uma melhor expericencia.")
+st.sidebar.image("aluga.png")
+st.sidebar.title("selecione um carro")
+nomes = ["fiat uno", "gol quadrado", "honda civic" , "corolla"]
+opcao = st.sidebar.selectbox ("carros disponiveis:" , nomes)
+st.image(f"{opcao}.png")
+st.title (f"você alugou o modelo: {opcao}")
+if  opcao == "fiat uno":
+    diaria = 80
+elif opcao == "gol quadrado":
+    diaria = 90
+elif opcao == "honda civic":
+    diaria = 150
+elif opcao == "corolla":
+    diaria = 158
+dias = st.number_input(f"Quantos dias {opcao} foi alugado?", min_value=1, step=1)
+km = st.number_input(f"Quantos km você pretende rodar com o {opcao}?", min_value=1, step=1)
+if st.button("calcular"):
     dias = int(dias)
     km = float(km)
-
     total_dias = dias * diaria
     total_km = km * 0.15
     aluguel_total = total_dias+total_km
-
-    st.warning(f'Você alugou o {opcao} por {dias} dias e rodou {km}km. O valor total a pagar é R${aluguel_total:.2f}')
-
-
-
-
-
-
+    st.warning(f"você alugou o {opcao} por {dias} dias e rodou {km}km. o valor total a pagar é R${aluguel_total:.2f}")
